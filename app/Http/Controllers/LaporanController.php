@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Suratkeluar;
+use App\Models\Suratmasuk;
 use Illuminate\Http\Request;
 
 class LaporanController extends Controller
@@ -9,17 +10,19 @@ class LaporanController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function suratkeluar()
     {
-        //
+        $suratkeluars = Suratkeluar::all();
+        return view('laporan.laporansk', compact('suratkeluars'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function suratmasuk()
     {
-        //
+        $suratmasuks = Suratmasuk::all();
+        return view('laporan.laporansm', compact('suratmasuks'));
     }
 
     /**

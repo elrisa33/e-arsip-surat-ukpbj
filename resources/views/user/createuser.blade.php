@@ -1,9 +1,9 @@
-@extends('admin.layout')
+@extends('layout')
 @section('title')
     create user
 @endsection
 @section('content')
-<div class="card">  
+<div class="card">
     <h5 class="card-header">
         Data User
     </h5>

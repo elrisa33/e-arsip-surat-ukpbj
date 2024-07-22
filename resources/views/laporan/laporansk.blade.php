@@ -1,13 +1,24 @@
-@extends('admin.layout')
+@extends('layout')
 @section('title')
-    Surat Keluar
+    Laporan
 @endsection
 @section('content')
-<div class="card">  
+<div class="pagetitle">
+    <h1>Laporan Surat Keluar</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Laporan Surat Keluar</a></li>
+        <li class="breadcrumb-item active">Beranda</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+
+    <!-- ini konten -->
+<div class="card">
     <h5 class="card-header">
-        Data Surat Keluar
+        Laporan Surat Keluar
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-  <a href="/createsuratmasuk" class="btn btn-primary" type="button">Tambah Data Surat Keluar</a>
+  <a href="/createsuratkeluar"></a>
 </div>
     </h5>
     <div>
@@ -21,23 +32,18 @@
                 <th scope="col">Perihal</th>
                 <th scope="col">Nomor Petunjuk</th>
                 <th scope="col">Nomor</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
               </tr>
             </thead>
             <tbody>
 @foreach ($suratkeluars as $Suratkeluar)
               <tr>
-                <th scope="row">{{ $loop->iteration}}</th>
-                <td>{{ $Suratkeluar->nomor_urut}}</td>
-                <td>{{ $Suratkeluar->nomor_berkas}}</td>
+                <td>{{ $Suratkeluar->nomorurut_sk}}</td>
+                <td>{{ $Suratkeluar->nomorberkas_sk}}</td>
                 <td>{{ $Suratkeluar->alamat_penerima}}</td>
-                <td>{{ $Suratkeluar->tanggal}}</td>
-                <td>{{ $Suratkeluar->perihal}}</td>
-                <td>{{ $Suratkeluar->nomor_petunjuk}}</td>
-                <td>{{ $Suratkeluar->nomor}}</td>
-                <td><a href="/editsuratkeluar/{{ $Suratkeluar->id}}" class="btn btn-primary">Edit</a></td>
-                <td><a href="/deletesuratkeluar/{{ $Suratkeluar->id}}" class="btn btn-primary">Delete</a></td>
+                <td>{{ $Suratkeluar->tanggal_sk}}</td>
+                <td>{{ $Suratkeluar->perihal_sk}}</td>
+                <td>{{ $Suratkeluar->nomorpetunjuk_sk}}</td>
+                <td>{{ $Suratkeluar->nomor_sk}}</td>
               </tr>
               @endforeach
             </tbody>

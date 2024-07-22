@@ -1,20 +1,20 @@
-@extends('admin.layout')
+@extends('layout')
 @section('title')
     Surat Masuk
 @endsection
 @section('content')
   <div class="pagetitle">
-    <h1>Dashboard</h1>
+    <h1>Arsip Surat Masuk</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-        <li class="breadcrumb-item active">Dashboard</li>
+        <li class="breadcrumb-item"><a href="index.html">Surat Masuk</a></li>
+        <li class="breadcrumb-item active">Beranda</li>
       </ol>
     </nav>
   </div><!-- End Page Title -->
 
     <!-- ini konten -->
-    <div class="card">  
+    <div class="card">
     <h5 class="card-header">
         Data Surat Masuk
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -41,15 +41,14 @@
             @foreach ($suratmasuks as $Suratmasuk)
               <tr>
                 <th scope="row">{{ $loop->iteration}}</th>
-                <td>{{ $Suratmasuk->nomor_urut}}</td>
-                <td>{{ $Suratmasuk->nomor_berkas}}</td>
+                <td>{{ $Suratmasuk->nomorberkas_sm}}</td>
                 <td>{{ $Suratmasuk->alamat_pengirim}}</td>
-                <td>{{ $Suratmasuk->tanggal}}</td>
-                <td>{{ $Suratmasuk->perihal}}</td>
-                <td>{{ $Suratmasuk->nomor_petunjuk}}</td>
-                <td>{{ $Suratmasuk->nomor}}</td>
+                <td>{{ $Suratmasuk->tanggal_sm}}</td>
+                <td>{{ $Suratmasuk->nomor_sm}}</td>
+                <td>{{ $Suratmasuk->perihal_sm}}</td>
+                <td>{{ $Suratmasuk->nomorpetunjuk_sm}}</td>
+                <td>{{ $Suratmasuk->nomor_paket}}</td>
                 <td><a href="/editsuratmasuk/{{ $Suratmasuk->id}}" class="btn btn-primary">Edit</a></td>
-
                 <td><a href="/deletesuratmasuk/{{ $Suratmasuk->id}}" class="btn btn-primary">Delete</a></td>
               </tr>
               @endforeach
@@ -57,6 +56,6 @@
           </table>
     </div>
 </div>
-   
+
 
 @endsection

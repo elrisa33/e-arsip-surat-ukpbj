@@ -1,9 +1,9 @@
-@extends('admin.layout')
+@extends('layout')
 @section('title')
     Create Surat Masuk
 @endsection
 @section('content')
-<div class="card">  
+<div class="card">
     <h5 class="card-header">
         Data Surat Masuk
     </h5>
@@ -12,10 +12,10 @@
 @csrf
 
 <div class="mb-3">
-<label for="nomor_berkas" class="form-label">Nomor Berkas</label>
-<input type="text" class="form-control" name="nomor_berkas" id="nomor_berkas" placeholder="Masukan Nomor Berkas">
+<label for="nomorberkas_sm" class="form-label">Nomor Berkas</label>
+<input type="text" class="form-control" name="nomorberkas_sm" id="nomorberkas_sm" placeholder="Masukan Nomor Berkas">
 <div class="text-danger mt-1">
-@error('nomor_berkas')
+@error('nomorberkas_sm')
 {{ $message }}
 @enderror
 </div>
@@ -30,17 +30,17 @@
 </div>
 </div>
 <div class="mb-3">
-<label for="tanggal" class="form-label">Tanggal</label>
-<input type="text" class="form-control" name="tanggal" id="tanggal" placeholder="Masukan Tanggal">
+<label for="tanggal_sm" class="form-label">Tanggal</label>
+<input type="date" class="form-control" name="tanggal_sm" id="tanggal_sm" placeholder="Masukan Tanggal">
 <div class="text-danger mt-1">
-@error('tanggal')
+@error('tanggal_sm')
 {{ $message }}
 @enderror
 </div>
 </div>
 <div class="mb-3">
-<label for="nomor" class="form-label">Nomor</label>
-<input type="text" class="form-control" name="nomor" id="nomor" placeholder="Masukan Nomor">
+<label for="nomor_sm" class="form-label">Nomor</label>
+<input type="text" class="form-control" name="nomor_sm" id="nomor_sm" placeholder="Masukan Nomor">
 <div class="text-danger mt-1">
 @error('nomor')
 {{ $message }}
@@ -48,26 +48,26 @@
 </div>
 </div>
 <div class="mb-3">
-<label for="perihal" class="form-label">Perihal</label>
-<input type="text" class="form-control" name="perihal" id="perihal" placeholder="Masukan Perihal">
+<label for="perihal_sm" class="form-label">Perihal</label>
+<input type="text" class="form-control" name="perihal_sm" id="perihal_sm" placeholder="Masukan Perihal">
 <div class="text-danger mt-1">
-@error('perihal')
+@error('perihal_sm')
 {{ $message }}
 @enderror
 </div>
 </div>
 <div class="mb-3">
-<label for="nomor_petunjuk" class="form-label">Nomor Petunjuk</label>
-<input type="text" class="form-control" name="nomor_petunjuk" id="nomor_petunjuk" placeholder="Masukan Nomor Petunjuk">
+<label for="nomorpetunjuk_sm" class="form-label">Nomor Petunjuk</label>
+<input type="text" class="form-control" name="nomorpetunjuk_sm" id="nomorpetunjuk_sm" placeholder="Masukan Nomor Petunjuk">
 <div class="text-danger mt-1">
-@error('nomor_petunjuk')
+@error('nomorpetunjuk_sm')
 {{ $message }}
 @enderror
 </div>
 </div>
 <div class="mb-3">
 <label for="nomor_paket" class="form-label">Nomor Paket</label>
-<input type="text" class="form-control" name="nomor_paket" id="nomor_paket" placeholder="Masukan Nomor Paket">
+<input type="date" class="form-control" name="nomor_paket" id="nomor_paket" placeholder="Masukan Nomor Paket">
 <div class="text-danger mt-1">
 @error('nomor_paket')
 {{ $message }}

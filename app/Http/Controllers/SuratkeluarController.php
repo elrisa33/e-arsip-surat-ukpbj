@@ -12,7 +12,7 @@ class SuratkeluarController extends Controller
     public function index()
     {
         $suratkeluars = Suratkeluar::all();
-        return view('admin.suratkeluar.suratkeluar', compact('suratkeluars'));
+        return view('suratkeluar.suratkeluar', compact('suratkeluars'));
     }
 
     /**
@@ -20,7 +20,7 @@ class SuratkeluarController extends Controller
      */
     public function create()
     {
-        return view('admin.suratkeluar.createsuratkeluar');
+        return view('suratkeluar.createsuratkeluar');
     }
 
     /**
@@ -30,32 +30,35 @@ class SuratkeluarController extends Controller
     {
         $request->validate(
             [
-                'nomor_urut' => 'required',
-                'nomor_berkas' => 'required',
+
+                'nomorurut_sk' => 'required',
+                'nomorberkas_sk' => 'required',
                 'alamat_penerima' => 'required',
-                'tanggal' => 'required',
-                'perihal' => 'required',
-                'nomor_petunjuk' => 'required',
-                'nomor' => 'required',
+                'tanggal_sk' => 'required',
+                'perihal_sk' => 'required',
+                'nomorpetunjuk_sk' => 'required',
+                'nomor_sk' => 'required',
             ],
             [
-                'nomor_urut' => 'wajib di isi!!',
-                'nomor_berkas' => 'wajib di isi!!',
-                'alamat_penerima' => 'wajib di isi!!',
-                'tanggal' => 'wajib di isi!!',
-                'perihal' => 'wajib di isi!!',
-                'nomor_petunjuk' => 'wajib di isi!!',
-                'nomor' => 'wajib di isi!!d',
+
+                'nomorurut_sk.required' => 'wajib di isi!!',
+                'nomorberkas_sk.required' => 'wajib di isi!!',
+                'alamat_penerima.required' => 'wajib di isi!!',
+                'tanggal_sk.date.required' => 'wajib di isi!!',
+                'perihal_sk.required' => 'wajib di isi!!',
+                'nomorpetunjuk_sk.required' => 'wajib di isi!!',
+                'nomor_sk.required' => 'wajib di isi!!d',
             ]
               );
         $suratkeluars = new Suratkeluar();
-        $suratkeluars->nomor_urut = $request['nomor_urut'];
-        $suratkeluars->nomor_berkas = $request['nomor_berkas'];
+
+        $suratkeluars->nomorurut_sk = $request['nomorurut_sk'];
+        $suratkeluars->nomorberkas_sk = $request['nomorberkas_sk'];
         $suratkeluars->alamat_penerima = $request['alamat_penerima'];
-        $suratkeluars->tanggal = $request['tanggal'];
-        $suratkeluars->perihal = $request['perihal'];
-        $suratkeluars->nomor_petunjuk = $request['nomor_petunjuk'];
-        $suratkeluars->nomor = $request['nomor'];
+        $suratkeluars->tanggal_sk = $request['tanggal_sk'];
+        $suratkeluars->perihal_sk = $request['perihal_sk'];
+        $suratkeluars->nomorpetunjuk_sk = $request['nomorpetunjuk_sk'];
+        $suratkeluars->nomor_sk = $request['nomor_sk'];
         $suratkeluars->save();
         return redirect('/suratkeluar')->with('status','Selamat Data Surat Keluar Sudah Di Tambahkan');
     }
@@ -74,7 +77,7 @@ class SuratkeluarController extends Controller
     public function edit(string $id)
     {
         $Suratkeluar = Suratkeluar::find($id);
-        return view('admin.suratkeluar.editsuratkeluar', compact('Suratkeluar'));
+        return view('suratkeluar.updatesuratkeluar', compact('Suratkeluar'));
     }
 
     /**
@@ -84,32 +87,34 @@ class SuratkeluarController extends Controller
     {
         $request->validate(
             [
-                'nomor_urut' => 'required',
-                'nomor_berkas' => 'required',
+                'nomorurut_sk' => 'required',
+                'nomorberkas_sk' => 'required',
                 'alamat_penerima' => 'required',
-                'tanggal' => 'required',
-                'perihal' => 'required',
-                'nomor_petunjuk' => 'required',
-                'nomor' => 'required',
+                'tanggal_sk' => 'required',
+                'perihal_sk' => 'required',
+                'nomorpetunjuk_sk' => 'required',
+                'nomor_sk' => 'required',
             ],
             [
-                'nomor_urut' => 'wajib di isi!!',
-                'nomor_berkas' => 'wajib di isi!!',
-                'alamat_penerima' => 'wajib di isi!!',
-                'tanggal' => 'wajib di isi!!',
-                'perihal' => 'wajib di isi!!',
-                'nomor_petunjuk' => 'wajib di isi!!',
-                'nomor' => 'wajib di isi!!d',
+
+                'nomorurut_sk.required' => 'wajib di isi!!',
+                'nomorberkas_sk.required' => 'wajib di isi!!',
+                'alamat_penerima.required' => 'wajib di isi!!',
+                'tanggal_sk.date.required' => 'wajib di isi!!',
+                'perihal_sk.required' => 'wajib di isi!!',
+                'nomorpetunjuk_sk.required' => 'wajib di isi!!',
+                'nomor_sk.required' => 'wajib di isi!!d',
             ]
               );
-        $suratkeluars = new Suratkeluar();
-        $suratkeluars->nomor_urut = $request['nomor_urut'];
-        $suratkeluars->nomor_berkas = $request['nomor_berkas'];
+        $suratkeluars = Suratkeluar::find($id);
+
+        $suratkeluars->nomorurut_sk = $request['nomorurut_sk'];
+        $suratkeluars->nomorberkas_sk = $request['nomorberkas_sk'];
         $suratkeluars->alamat_penerima = $request['alamat_penerima'];
-        $suratkeluars->tanggal = $request['tanggal'];
-        $suratkeluars->perihal = $request['perihal'];
-        $suratkeluars->nomor_petunjuk = $request['nomor_petunjuk'];
-        $suratkeluars->nomor = $request['nomor'];
+        $suratkeluars->tanggal_sk = $request['tanggal_sk'];
+        $suratkeluars->perihal_sk = $request['perihal_sk'];
+        $suratkeluars->nomorpetunjuk_sk = $request['nomorpetunjuk_sk'];
+        $suratkeluars->nomor_sk = $request['nomor_sk'];
         $suratkeluars->save();
         return redirect('/suratkeluar')->with('status','Selamat Data Surat Keluar Sudah Di Update');
     }

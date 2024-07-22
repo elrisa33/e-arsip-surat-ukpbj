@@ -12,7 +12,7 @@ class SuratmasukController extends Controller
     public function index()
     {
         $suratmasuks = Suratmasuk::all();
-        return view('admin.suratmasuk.suratmasuk', compact('suratmasuks'));
+        return view('suratmasuk.suratmasuk', compact('suratmasuks'));
     }
 
     /**
@@ -20,7 +20,7 @@ class SuratmasukController extends Controller
      */
     public function create()
     {
-        return view('admin.suratmasuk.createsuratmasuk');
+        return view('suratmasuk.createsuratmasuk');
     }
 
     /**
@@ -30,34 +30,34 @@ class SuratmasukController extends Controller
     {
         $request->validate(
             [
-                'nomor_urut' => 'required',
-                'nomor_berkas' => 'required',
-                'alamat_penerima' => 'required',
-                'tanggal' => 'required',
-                'nomor' => 'required',
-                'perihal' => 'required',
-                'nomor_petunjuk' => 'required',
+
+                'nomorberkas_sm' => 'required',
+                'alamat_pengirim' => 'required',
+                'tanggal_sm' => 'required',
+                'nomor_sm' => 'required',
+                'perihal_sm' => 'required',
+                'nomorpetunjuk_sm' => 'required',
                 'nomor_paket' => 'required',
             ],
             [
-                'nomor_urut.numeric' => 'wajib di isi!!',
-                'nomor_berkas.required' => 'wajib di isi!!',
-                'alamat_penerima.required' => 'wajib di isi!!',
-                'tanggal' => 'wajib di isi!!',
-                'nomor.numeric' => 'wajib di isi!!',
-                'perihal.required' => 'wajib di isi!!',
-                'nomor_petunjuk' => 'wajib di isi!!',
-                'nomor_paket' => 'wajib di isi!!d',
+
+                'nomorberkas_sm.required' => 'wajib di isi!!',
+                'alamat_pengirim.required' => 'wajib di isi!!',
+                'tanggal_sm.date.required' => 'wajib di isi!!',
+                'nomor_sm.numeric.required' => 'wajib di isi!!',
+                'perihal_sm.required' => 'wajib di isi!!',
+                'nomorpetunjuk_sm.required' => 'wajib di isi!!',
+                'nomor_paket.required' => 'wajib di isi!!d',
             ]
               );
         $suratmasuks = new Suratmasuk();
-        $suratmasuks->nomor_urut = $request['nomor_urut'];
-        $suratmasuks->nomor_berkas = $request['nomor_berkas'];
-        $suratmasuks->alamat_penerima = $request['alamat_penerima'];
-        $suratmasuks->tanggal = $request['tanggal'];
-        $suratmasuks->nomor = $request['nomor'];
-        $suratmasuks->perihal = $request['perihal'];
-        $suratmasuks->nomor_petunjuk = $request['nomor_petunjuk'];
+
+        $suratmasuks->nomorberkas_sm = $request['nomorberkas_sm'];
+        $suratmasuks->alamat_pengirim = $request['alamat_pengirim'];
+        $suratmasuks->tanggal_sm = $request['tanggal_sm'];
+        $suratmasuks->nomor_sm = $request['nomor_sm'];
+        $suratmasuks->perihal_sm = $request['perihal_sm'];
+        $suratmasuks->nomorpetunjuk_sm = $request['nomorpetunjuk_sm'];
         $suratmasuks->nomor_paket = $request['nomor_paket'];
         $suratmasuks->save();
         return redirect('/suratmasuk')->with('status','Selamat Data Surat Masuk Sudah Di Tambahkan');
@@ -77,7 +77,7 @@ class SuratmasukController extends Controller
     public function edit(string $id)
     {
         $Suratmasuk = Suratmasuk::find($id);
-        return view('admin.suratmasuk.editsuratmasuk', compact('Suratmasuk'));
+        return view('suratmasuk.updatesuratmasuk', compact('Suratmasuk'));
     }
 
     /**
@@ -87,34 +87,35 @@ class SuratmasukController extends Controller
     {
         $request->validate(
             [
-                'nomor_urut' => 'required',
-                'nomor_berkas' => 'required',
-                'alamat_penerima' => 'required',
-                'tanggal' => 'required',
-                'nomor' => 'required',
-                'perihal' => 'required',
-                'nomor_petunjuk' => 'required',
+
+
+                'nomorberkas_sm' => 'required',
+                'alamat_pengirim' => 'required',
+                'tanggal_sm' => 'required',
+                'nomor_sm' => 'required',
+                'perihal_sm' => 'required',
+                'nomorpetunjuk_sm' => 'required',
                 'nomor_paket' => 'required',
             ],
             [
-                'nomor_urut' => 'wajib di isi!!',
-                'nomor_berkas' => 'wajib di isi!!',
-                'alamat_penerima' => 'wajib di isi!!',
-                'tanggal' => 'wajib di isi!!',
-                'nomor' => 'wajib di isi!!',
-                'perihal' => 'wajib di isi!!',
-                'nomor_petunjuk' => 'wajib di isi!!',
-                'nomor_paket' => 'wajib di isi!!d',
+
+                'nomorberkas_sm.required' => 'wajib di isi!!',
+                'alamat_pengirim.required' => 'wajib di isi!!',
+                'tanggal_sm.date.required' => 'wajib di isi!!',
+                'nomor_sm.numeric.required' => 'wajib di isi!!',
+                'perihal_sm.required' => 'wajib di isi!!',
+                'nomorpetunjuk_sm.required' => 'wajib di isi!!',
+                'nomor_paket.required' => 'wajib di isi!!d',
             ]
               );
-        $suratmasuks = new Suratmasuk();
-        $suratmasuks->nomor_urut = $request['nomor_urut'];
-        $suratmasuks->nomor_berkas = $request['nomor_berkas'];
-        $suratmasuks->alamat_penerima = $request['alamat_penerima'];
-        $suratmasuks->tanggal = $request['tanggal'];
-        $suratmasuks->nomor = $request['nomor'];
-        $suratmasuks->perihal = $request['perihal'];
-        $suratmasuks->nomor_petunjuk = $request['nomor_petunjuk'];
+        $suratmasuks = Suratmasuk::find($id);
+
+        $suratmasuks->nomorberkas_sm = $request['nomorberkas_sm'];
+        $suratmasuks->alamat_pengirim = $request['alamat_pengirim'];
+        $suratmasuks->tanggal_sm = $request['tanggal_sm'];
+        $suratmasuks->nomor_sm = $request['nomor_sm'];
+        $suratmasuks->perihal_sm = $request['perihal_sm'];
+        $suratmasuks->nomorpetunjuk_sm = $request['nomorpetunjuk_sm'];
         $suratmasuks->nomor_paket = $request['nomor_paket'];
         $suratmasuks->save();
         return redirect('/suratmasuk')->with('status','Selamat Data Surat Masuk Sudah Di Update');

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('suratkeluars', function (Blueprint $table) {
             $table->id();
             $table->string('nomorberkas_sk');
+            $table->string('nomorurut_sk');
             $table->text('alamat_penerima');
             $table->date('tanggal_sk');
             $table->string('perihal_sk');

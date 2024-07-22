@@ -1,19 +1,19 @@
-@extends('admin.layout')
+@extends('layout')
 @section('title')
     update user
 @endsection
 @section('content')
-<div class="card">  
+<div class="card">
     <h5 class="card-header">
         Update User
     </h5>
     <div class="card-body">
-    <form action="/updateuser" method="post" enctype="multipart/form-data">
+    <form action="/updateuser/{{ $User->id }}" method="post" enctype="multipart/form-data">
 @method('PUT')
 @csrf
 <div class="mb-3">
 <label for="nama" class="form-label">Nama User</label>
-<input type="text" class="form-control" name="nama" id="nama" placeholder="Masukan User" value="{{ $User->name }}">
+<input type="text" class="form-control" name="nama" id="nama" placeholder="Masukan User" value="{{ $User->nama }}">
 <div class="text-danger mt-1">
 @error('nama')
 {{ $message }}
@@ -38,15 +38,7 @@
 @enderror
 </div>
 </div>
-<div class="mb-3">
-<label for="password" class="form-label">Password</label>
-<input type="text" class="form-control" name="password" id="password" placeholder="Masukan Password" value="{{ $User->password }}">
-<div class="text-danger mt-1">
-@error('password')
-{{ $message }}
-@enderror
-</div>
-</div>
+
 <div class="mb-3">
 <label for="foto" class="form-label">Ganti Foto</label>
 <input type="hidden" name="foto_lama" value="{{ $User->foto }}">
