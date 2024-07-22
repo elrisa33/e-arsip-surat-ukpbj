@@ -82,10 +82,12 @@
               <hr class="dropdown-divider">
             </li>
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="/login">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
-              </a>
+              <form action="/logout" method="POST">
+                @csrf
+                <button class="dropdown-item d-flex align-items-center" type="submit">
+                  <i class="bi bi-box-arrow-right"></i>
+                  <span>Sign Out</span>
+                </button>
             </li>
           </ul><!-- End Profile Dropdown Items -->
         </li><!-- End Profile Nav -->
