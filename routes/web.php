@@ -5,7 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\SuratmasukController;
 use App\Http\Controllers\SuratkeluarController;
-use App\Http\Controllers\loginController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Controller;
 
 // BERANDA
@@ -17,9 +17,10 @@ Route::get('/beranda', function () {
 Route::get('/login', function () {
     return view('login.login');
 });
+Route::get('/savelogin', [LoginController::class, 'index']);
 
 // USER
-Route::get('/user', [UserController::class, 'index']);
+Route::get('/user', [UserController::class, 'index'])->middleware('admin');
 Route::get('/createuser', [UserController::class, 'create']);
 Route::post('/saveuser', [UserController::class, 'store']);
 Route::get('/edituser/{id}', [UserController::class, 'edit']);

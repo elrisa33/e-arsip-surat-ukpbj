@@ -11,6 +11,7 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
+    
     public function index()
     {
         $users = User::all();
@@ -107,7 +108,7 @@ class UserController extends Controller
         $users->nama = $request['nama'];
         $users->foto = basename($path);
         $users->email = $request['email'];
-        
+
         $users->save();
         return redirect('/user')->with('status','Selamat Data User Sudah Di Update');
     }
